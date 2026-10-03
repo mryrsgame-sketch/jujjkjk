@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050506">
+
+<title>YEADI X MOTION • Premium Motion Library</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+
+</head>
+
+
+<body>
+
+
+<div class="background-grid"></div>
+<div class="background-vignette"></div>
+
+
+<!-- =========================================================
+   INTRO
+========================================================= -->
+
+<div id="intro">
+
+    <div class="intro-grid"></div>
+
+    <div class="intro-glow"></div>
+
+
+    <div class="intro-stage">
+
+
+        <!-- FIRST -->
+        <div class="intro-y">
+            Y
+        </div>
+
+
+        <!-- THEN -->
+        <div class="intro-yeadi">
+            YEAD<span>I</span>
+        </div>
+
+
+        <div class="intro-line"></div>
+
+
+        <!-- THEN X -->
+        <div class="intro-x">
+            X
+        </div>
+
+
+        <!-- LOWER MOTION -->
+        <div class="intro-motion">
+            MOTION
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+   HEADER
+========================================================= -->
+
+<header id="header">
+
+
+    <div
+        class="brand"
+        onclick="goHome()"
+        style="cursor:pointer"
+    >
+
+        <span class="brand-dot"></span>
+
+        YEADI <em>X</em> MOTION
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button
+            class="search-button"
+            onclick="openSearch()"
+        >
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>SEARCH</span>
+
+        </button>
+
+
+        <button
+            class="save-button"
+            onclick="showSaved()"
+        >
+
+            <i class="fa-regular fa-bookmark"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+   HOME
+========================================================= -->
+
+<section
+    id="homePage"
+    class="page active"
+>
+
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+
+        <div class="hero-bg"></div>
+
+
+        <div class="hero-shell">
+
+
+            <div class="hero-copy">
+
+
+                <div class="hero-kicker">
+                    CODE-BASED MOTION LIBRARY
+                </div>
+
+
+                <h1 class="hero-title" id="heroHeadline">
+
+                    <span class="hero-line" id="heroLine1">Make the</span>
+                    <br>
+                    <strong class="hero-line" id="heroLine2">intro.</strong>
+                    <br>
+                    <span class="hero-line" id="heroLine3">Make it yours.</span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Explore the motion library, find a
+                    style by name or hashtag, save your
+                    favorites, and connect each motion
+                    to your own page or destination.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+
+                    <button
+                        class="btn-primary"
+                        onclick="showMoreInfo()"
+                    >
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        MORE INFORMATION
+
+                    </button>
+
+
+                    <button
+                        class="btn-secondary"
+                        onclick="goMotions()"
+                    >
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        BROWSE MOTIONS
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+            <div class="hero-preview-box">
+
+
+                <div class="hero-preview">
+
+                    <canvas
+                        id="heroCanvas"
+                        width="1280"
+                        height="720"
+                    ></canvas>
+
+                    <div class="hero-preview-grid"></div>
+
+                    <span
+                        class="hero-time hero-time-overlay"
+                        id="heroTime"
+                    >
+                        0.0s
+                    </span>
+
+                    <div class="hero-bars hero-bars-overlay">
+                        <span class="hero-bar active" id="heroBar1"></span>
+                        <span class="hero-bar" id="heroBar2"></span>
+                        <span class="hero-bar" id="heroBar3"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HOME CONTENT -->
+
+    <div class="home-content">
+
+        <div class="container">
+
+
+            <!-- =================================================
+               MOTIONS
+            ================================================= -->
+
+            <section
+                class="section"
+                id="motions"
+            >
+
+
+                <div class="section-head">
+
+
+                    <div>
+
+                        <h2 class="section-title">
+
+                            Featured Motions
+
+                            <small>
+                                10 TEMPLATES
+                            </small>
+
+                        </h2>
+
+
+                        <p class="section-description">
+
+                            One motion at a time.
+                            One clean studio.
+
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="view-all"
+                        onclick="goMotions()"
+                    >
+
+                        VIEW ALL
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="filter-row"
+                    id="filters"
+                ></div>
+
+
+                <div
+                    class="motion-row"
+                    id="motionRow"
+                ></div>
+
+
+            </section>
+
+
+            <!-- =================================================
+               CATEGORY FILTER
+            ================================================= -->
+
+            <section
+                class="section"
+                id="styleSection"
+            >
+
+                <div class="section-head">
+
+                    <div>
+
+                        <h2 class="section-title">
+                            Explore by Style
+                        </h2>
+
+                        <p class="section-description">
+                            Find a motion by its style.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="filter-row"
+                    id="categoryButtons"
+                ></div>
+
+
+            </section>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+   MORE INFORMATION (INTERNAL MOTHER PAGE VIEW)
+========================================================= -->
+
+<section
+    id="aboutPage"
+    class="page utility-page"
+>
+
+    <div class="utility-shell">
+
+        <div class="utility-topbar">
+
+            <div>
+                <div class="utility-kicker" id="moreInfoKicker">MORE INFORMATION</div>
+                <h1 class="utility-title" id="moreInfoTitle">YEADI X MOTION</h1>
+                <div class="more-copy-block" id="moreInfoBody">
+                    <p>
+                        YEADI X MOTION is a motion-focused creative library for
+                        discovering, previewing, saving, and opening animations
+                        in the dedicated Edit studio.
+                    </p>
+                    <p>
+                        The information shown here can be changed later from
+                        the Admin Panel without rebuilding the Mother Page.
+                    </p>
+                </div>
+                <div class="more-bullets" id="moreInfoBullets">
+                    <div class="more-bullet">Browse motion categories and find a style quickly.</div>
+                    <div class="more-bullet">Preview a motion directly on its card before opening Edit.</div>
+                    <div class="more-bullet">Save favorite motions locally in this browser.</div>
+                </div>
+            </div>
+
+            <button class="utility-back" onclick="goHome()">
+                <i class="fa-solid fa-arrow-left"></i>
+                BACK HOME
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   SAVED
+========================================================= -->
+
+
+<section
+    id="savedPage"
+    class="page utility-page"
+>
+
+    <div class="utility-shell">
+
+        <div class="saved-page-head">
+
+            <div>
+                <div class="utility-kicker">YOUR COLLECTION</div>
+                <h1 class="utility-title">SAVED MOTIONS</h1>
+                <p class="utility-copy">
+                    Everything you bookmark from the library appears here.
+                </p>
+            </div>
+
+            <div
+                id="savedCount"
+                class="saved-count"
+            >
+                0 SAVED
+            </div>
+
+        </div>
+
+        <div
+            id="savedGrid"
+            class="saved-grid"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   STEPS / TRAINING (INTERNAL MOTHER PAGE VIEW)
+========================================================= -->
+
+<section
+    id="stepsPage"
+    class="page utility-page"
+>
+
+    <div class="utility-shell">
+
+        <div class="utility-topbar">
+
+            <div>
+                <div class="utility-kicker">STEPS / TRAINING</div>
+                <h1 class="utility-title" id="stepsTitle">How YEADI X MOTION works</h1>
+                <p class="utility-copy" id="stepsIntro">
+                    A simple path from choosing a motion to opening the dedicated Edit studio.
+                </p>
+            </div>
+
+            <button class="utility-back" onclick="goHome()">
+                <i class="fa-solid fa-arrow-left"></i>
+                BACK HOME
+            </button>
+
+        </div>
+
+        <div class="steps-grid" id="stepsGrid">
+            <article class="step-card">
+                <b>01 · CHOOSE</b>
+                <p>Pick a motion card from the library and preview it before opening the editor.</p>
+            </article>
+            <article class="step-card">
+                <b>02 · SAVE OR EDIT</b>
+                <p>Save a motion for later or open it in the dedicated Edit page for customization.</p>
+            </article>
+            <article class="step-card">
+                <b>03 · CREATE</b>
+                <p>Use Edit for the heavier tools so the Mother Page stays focused and lightweight.</p>
+            </article>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   ALL MOTIONS
+========================================================= -->
+
+<section
+    id="allMotionsPage"
+    class="page utility-page"
+>
+    <div class="utility-shell">
+        <div class="utility-topbar">
+            <div>
+                <div class="utility-kicker">FULL LIBRARY</div>
+                <h1 class="utility-title">ALL MOTIONS</h1>
+                <p class="utility-copy">
+                    The full motion library. New Firebase-backed animations can be
+                    added later without changing the mother page structure.
+                </p>
+            </div>
+
+            <button class="utility-back" onclick="goBack()">
+                <i class="fa-solid fa-arrow-left"></i>
+                BACK
+            </button>
+        </div>
+
+        <div class="filter-row" id="allMotionFilters"></div>
+        <div id="allMotionsGrid" class="saved-grid"></div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+   STUDIO
+========================================================= -->
+
+<section
+    id="studioPage"
+    class="page"
+>
+
+
+    <div class="container studio-page">
+
+
+        <div class="studio-heading">
+
+
+            <div>
+
+                <div
+                    class="studio-kicker"
+                    id="studioKicker"
+                >
+                    MOTION STUDIO
+                </div>
+
+
+                <h1
+                    id="studioTitle"
+                >
+                    Cascading Identity
+                </h1>
+
+
+                <p
+                    id="studioDescription"
+                >
+                    Live preview.
+                </p>
+
+            </div>
+
+
+            <button
+                class="back-library"
+                onclick="goBack()"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                BACK TO LIBRARY
+
+            </button>
+
+        </div>
+
+
+        <div class="studio-grid">
+
+
+            <!-- =================================================
+               PREVIEW
+            ================================================= -->
+
+            <div class="preview-panel">
+
+
+                <div class="panel-top">
+
+                    <span class="panel-dot"></span>
+
+                    <span>
+                        LIVE CANVAS
+                    </span>
+
+                    <span class="grow"></span>
+
+                    <span id="studioTime">
+                        0.0s
+                    </span>
+
+                </div>
+
+
+                <div class="preview-wrap">
+
+                    <div class="studio-preview">
+
+                        <canvas
+                            id="studioCanvas"
+                            width="1280"
+                            height="720"
+                        ></canvas>
+
+                        <div
+                            class="studio-preview-grid"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="preview-controls">
+
+
+                    <button
+                        class="control-btn red"
+                        onclick="replayMotion()"
+                    >
+
+                        <i class="fa-solid fa-play"></i>
+
+                        REPLAY
+
+                    </button>
+
+
+                    <button
+                        class="control-btn"
+                        id="pauseButton"
+                        onclick="togglePause()"
+                    >
+
+                        <i class="fa-solid fa-pause"></i>
+
+                        PAUSE
+
+                    </button>
+
+
+                    <button
+                        class="control-btn"
+                        onclick="resetEditor()"
+                    >
+
+                        <i class="fa-solid fa-rotate-left"></i>
+
+                        RESET
+
+                    </button>
+
+
+                    <button
+                        class="control-btn"
+                        id="studioSaveButton"
+                        onclick="toggleSaved(currentMotionId)"
+                    >
+
+                        <i class="fa-regular fa-bookmark"></i>
+
+                        SAVE
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+               EDITOR
+            ================================================= -->
+
+            <aside class="editor-panel">
+
+
+                <div class="editor-head">
+
+                    <h3>
+                        CUSTOMIZE
+                    </h3>
+
+                </div>
+
+
+                <div
+                    class="editor-scroll"
+                    id="editor"
+                ></div>
+
+
+            </aside>
+
+
+        </div>
+
+
+        <!-- =================================================
+           ONLY TWO EXPORT ACTIONS
+        ================================================= -->
+
+        <div class="export-panel">
+
+
+            <div class="export-heading">
+
+                <h3>
+                    EXPORT
+                </h3>
+
+
+                <span>
+                    VIDEO = 30 FPS • STARTS AT 0:00
+                </span>
+
+            </div>
+
+
+            <div class="export-grid">
+
+
+                <button
+                    class="export-button"
+                    onclick="copyCode()"
+                >
+
+                    <i class="fa-regular fa-copy"></i>
+
+                    COPY CODE
+
+                </button>
+
+
+                <button
+                    class="export-button primary"
+                    onclick="recordVideo()"
+                >
+
+                    <i class="fa-solid fa-video"></i>
+
+                    VIDEO
+
+                </button>
+
+
+            </div>
+
+
+            <div class="export-note">
+
+                The video recorder renders the animation
+                in real time at 30 FPS. It begins from
+                0.00 seconds and runs until the full motion
+                duration is finished. The browser decides
+                whether its supported video container is
+                WebM or MP4.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   SEARCH
+========================================================= -->
+
+<div id="searchOverlay">
+
+
+    <div class="search-top">
+
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+
+        <input
+            id="globalSearch"
+            type="search"
+            placeholder="Search motions, styles, tags..."
+            autocomplete="off"
+        >
+
+
+        <button
+            class="close-search"
+            onclick="closeSearch()"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="search-tag-row"
+        id="searchTags"
+    ></div>
+
+
+    <div
+        class="search-grid"
+        id="searchGrid"
+    ></div>
+
+
+</div>
+
+
+<!-- =========================================================
+   CODE MODAL
+========================================================= -->
+
+<div id="codeModal">
+
+
+    <div class="code-box">
+
+
+        <div class="code-head">
+
+
+            <strong>
+                STANDALONE CODE
+            </strong>
+
+
+            <span class="grow"></span>
+
+
+            <button
+                class="control-btn"
+                onclick="copyCode()"
+            >
+
+                <i class="fa-regular fa-copy"></i>
+
+                COPY
+
+            </button>
+
+
+            <button
+                class="close-search"
+                onclick="closeCodePreview()"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+        </div>
+
+
+        <pre id="codePreview"></pre>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================================
+   GLOBAL BACK
+========================================================= -->
+
+<button
+    id="globalBackButton"
+    onclick="goBack()"
+    aria-label="Go back"
+    title="Go back"
+>
+    <i class="fa-solid fa-arrow-left"></i>
+</button>
+
+
+<!-- =========================================================
+   FIXED QUICK ACTIONS
+========================================================= -->
+
+<div id="fixedActions">
+    <button
+        class="fixed-action report"
+        onclick="openReport()"
+        aria-label="Report an issue"
+        title="Report an issue"
+    >
+        <i class="fa-solid fa-flag"></i>
+        <!-- icon only -->
+    </button>
+</div>
+
+
+<!-- =========================================================
+   REPORT MODAL
+========================================================= -->
+
+<div id="reportModal" aria-hidden="true">
+    <div class="report-box">
+        <div class="report-head">
+            <strong>REPORT AN ISSUE</strong>
+            <span class="grow"></span>
+            <button class="close-search" onclick="closeReport()" aria-label="Close report">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="report-body">
+            <div class="report-field">
+                <label class="report-label" for="reportReason">REPORT TYPE</label>
+                <select id="reportReason" class="report-select">
+                    <option value="Broken animation">Broken animation</option>
+                    <option value="Wrong link">Wrong link</option>
+                    <option value="UI issue">UI issue</option>
+                    <option value="Missing content">Missing content</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="report-field">
+                <label class="report-label" for="reportMessage">DETAILS</label>
+                <textarea
+                    id="reportMessage"
+                    class="report-textarea"
+                    placeholder="Describe what should be fixed..."
+                    maxlength="1500"
+                ></textarea>
+                <div class="report-meta" id="reportContext">Current page information will be attached automatically.</div>
+            </div>
+
+            <div class="report-actions">
+                <button class="report-cancel" onclick="closeReport()">CANCEL</button>
+                <button class="report-submit" id="reportSubmitButton" onclick="submitReport()">SEND REPORT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- =========================================================
+   TOAST
+========================================================= -->
+
+<div id="toast"></div>
+
+
+<!-- =========================================================
+   FOOTER
+========================================================= -->
+
+<footer>
+
+    <span>
+        © 2026 YEADI X MOTION
+    </span>
+
+    <div class="footer-links">
+        <a href="#" onclick="showSteps(); return false;">STEPS</a>
+    </div>
+
+</footer>
+
+
+
+
+<!-- =========================================================
+   FIREBASE PUBLIC READ + REPORT MODULE
+========================================================= -->
+
+
+
+
+<script src="js/app.js"></script>
+<script src="js/saved.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/search.js"></script>
+
+</body>
+</html>
