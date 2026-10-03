@@ -1,0 +1,607 @@
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --bg:#050506;
+    --bg2:#08090c;
+    --panel:#0d0d11;
+    --panel2:#121218;
+
+    --red:#e50914;
+    --red2:#ff2735;
+
+    --text:#f5f5f7;
+    --muted:#9898a1;
+    --dim:#62626b;
+
+    --border:rgba(255,255,255,.075);
+    --border2:rgba(255,255,255,.13);
+
+    --green:#39e58f;
+
+    --max:1500px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+
+    color:var(--text);
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% -12%,
+            rgba(229,9,20,.14),
+            transparent 33%
+        ),
+        linear-gradient(
+            180deg,
+            #050506 0%,
+            #07080b 56%,
+            #050506 100%
+        );
+}
+
+body.lock{
+    overflow:hidden;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    display:block;
+}
+
+::-webkit-scrollbar{
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050506;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#29292f;
+    border-radius:30px;
+}
+
+::selection{
+    background:rgba(229,9,20,.28);
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background-grid{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    pointer-events:none;
+
+    opacity:.16;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.022) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.022) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        80px 80px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 80%
+        );
+}
+
+.background-vignette{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 20%,
+            rgba(0,0,0,.43) 100%
+        );
+}
+
+.container{
+    width:min(
+        var(--max),
+        calc(100% - 90px)
+    );
+
+    margin:auto;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    /* Failsafe for standalone/online HTML previewers: the intro exits
+       even when its JavaScript timer is delayed or re-initialized. */
+    animation:introAutoExit .8s ease 3.35s forwards;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(229,9,20,.16),
+            transparent 34%
+        ),
+        #030304;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease,
+        transform .8s ease;
+}
+
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.035);
+    pointer-events:none;
+}
+
+@keyframes introAutoExit{
+    from{
+        opacity:1;
+        visibility:visible;
+        transform:scale(1);
+        pointer-events:auto;
+    }
+    to{
+        opacity:0;
+        visibility:hidden;
+        transform:scale(1.035);
+        pointer-events:none;
+    }
+}
+
+.intro-grid{
+    position:absolute;
+    inset:-30%;
+
+    opacity:.14;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.045) 1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    transform:
+        perspective(700px)
+        rotateX(62deg)
+        scale(1.5);
+
+    animation:
+        introGridMove
+        7s
+        linear
+        infinite;
+}
+
+@keyframes introGridMove{
+
+    from{
+        transform:
+            perspective(700px)
+            rotateX(62deg)
+            translateY(0)
+            scale(1.5);
+    }
+
+    to{
+        transform:
+            perspective(700px)
+            rotateX(62deg)
+            translateY(70px)
+            scale(1.5);
+    }
+
+}
+
+.intro-glow{
+    position:absolute;
+
+    width:480px;
+    height:480px;
+
+    border-radius:50%;
+
+    background:
+        rgba(229,9,20,.14);
+
+    filter:
+        blur(105px);
+
+    animation:
+        introGlow
+        2.4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes introGlow{
+
+    0%,100%{
+        transform:scale(.78);
+        opacity:.28;
+    }
+
+    50%{
+        transform:scale(1.12);
+        opacity:.7;
+    }
+
+}
+
+.intro-stage{
+    position:relative;
+
+    width:min(
+        92vw,
+        1000px
+    );
+
+    height:360px;
+}
+
+
+/* Y */
+
+.intro-y{
+    position:absolute;
+
+    left:50%;
+    top:0;
+
+    transform:
+        translateX(-50%)
+        translateY(-48px);
+
+    opacity:0;
+
+    color:#fff;
+
+    font-size:
+        clamp(
+            88px,
+            10vw,
+            150px
+        );
+
+    line-height:1;
+
+    font-weight:900;
+
+    letter-spacing:-8px;
+
+    animation:
+        introY
+        1.15s
+        cubic-bezier(.16,1,.3,1)
+        .1s
+        forwards;
+}
+
+@keyframes introY{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateX(-50%)
+            translateY(-48px);
+    }
+
+    23%{
+        opacity:1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    70%{
+        opacity:1;
+
+        transform:
+            translateX(-50%)
+            translateY(58px);
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translateX(-50%)
+            translateY(138px);
+    }
+
+}
+
+
+/* YEADI */
+
+.intro-yeadi{
+    position:absolute;
+
+    left:50%;
+    top:45px;
+
+    transform:
+        translateX(-50%)
+        translateY(-15px)
+        scale(.96);
+
+    opacity:0;
+
+    white-space:nowrap;
+
+    font-size:
+        clamp(
+            54px,
+            7vw,
+            108px
+        );
+
+    line-height:1;
+
+    font-weight:900;
+
+    letter-spacing:
+        clamp(
+            4px,
+            1vw,
+            9px
+        );
+
+    animation:
+        introYeadi
+        .82s
+        cubic-bezier(.16,1,.3,1)
+        1.03s
+        forwards;
+}
+
+@keyframes introYeadi{
+
+    to{
+        opacity:1;
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+.intro-yeadi span{
+    color:var(--red);
+
+    text-shadow:
+        0 0 22px rgba(229,9,20,.75),
+        0 0 65px rgba(229,9,20,.33);
+}
+
+
+/* LINE */
+
+.intro-line{
+    position:absolute;
+
+    left:50%;
+    top:175px;
+
+    width:min(
+        430px,
+        60vw
+    );
+
+    height:1px;
+
+    transform:
+        translateX(-50%)
+        scaleX(0);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--red),
+            transparent
+        );
+
+    animation:
+        introLine
+        .65s
+        ease
+        1.48s
+        forwards;
+}
+
+@keyframes introLine{
+
+    to{
+        transform:
+            translateX(-50%)
+            scaleX(1);
+    }
+
+}
+
+
+/* X */
+
+.intro-x{
+    position:absolute;
+
+    left:50%;
+    top:191px;
+
+    transform:
+        translateX(-50%)
+        scale(.22)
+        rotate(-32deg);
+
+    opacity:0;
+
+    color:#f6f6f8;
+
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            66px
+        );
+
+    line-height:1;
+
+    font-weight:900;
+
+    text-shadow:
+        0 0 22px rgba(255,255,255,.3);
+
+    animation:
+        introX
+        .66s
+        cubic-bezier(.16,1,.3,1)
+        1.49s
+        forwards;
+}
+
+@keyframes introX{
+
+    to{
+        opacity:1;
+
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(0);
+    }
+
+}
+
+
+/* MOTION
+   moved lower as requested
+*/
+
+.intro-motion{
+    position:absolute;
+
+    left:50%;
+    top:272px;
+
+    transform:
+        translateX(-50%)
+        translateY(18px);
+
+    opacity:0;
+
+    white-space:nowrap;
+
+    color:#9898a1;
+
+    font-size:
+        clamp(
+            10px,
+            1.15vw,
+            16px
+        );
+
+    line-height:1;
+
+    font-weight:800;
+
+    letter-spacing:
+        clamp(
+            5px,
+            1.2vw,
+            12px
+        );
+
+    animation:
+        introMotion
+        .75s
+        cubic-bezier(.16,1,.3,1)
+        1.72s
+        forwards;
+}
+
+@keyframes introMotion{
+
+    to{
+        opacity:1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+}
+
+

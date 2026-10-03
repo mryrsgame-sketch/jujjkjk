@@ -1,0 +1,165 @@
+* =========================================================
+   HEADER
+   NO NAVIGATION
+========================================================= */
+
+header{
+    position:fixed;
+
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:5000;
+
+    height:76px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:
+        0 26px;
+
+    transition:.35s ease;
+}
+
+header.scrolled{
+    background:
+        rgba(5,5,6,.88);
+
+    backdrop-filter:
+        blur(22px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+}
+
+.brand-dot{
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:
+        var(--red);
+
+    box-shadow:
+        0 0 15px rgba(229,9,20,.85),
+        0 0 30px rgba(229,9,20,.3);
+}
+
+.brand em{
+    font-style:normal;
+    color:var(--red);
+}
+
+.header-actions{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.search-button,
+.save-button{
+    height:40px;
+
+    border-radius:20px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:#9999a1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    transition:.25s;
+}
+
+.search-button{
+    padding:
+        0 14px;
+
+    font-size:9px;
+
+    font-weight:800;
+}
+
+.save-button{
+    width:42px;
+}
+
+.search-button:hover,
+.save-button:hover{
+    color:white;
+
+    background:
+        rgba(255,255,255,.075);
+
+    border-color:
+        rgba(255,255,255,.16);
+}
+
+
+/* =========================================================
+   PAGES
+========================================================= */
+
+.page{
+    min-height:100vh;
+
+    display:none;
+
+    animation:
+        pageIn
+        .45s
+        ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
